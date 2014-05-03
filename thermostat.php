@@ -7,11 +7,6 @@
 $password='xxxxxxx';
 $username='xxxxxxx';
 
-if (isset($_GET['box']))
-{
-    $box=$_GET['box'];
-}
-
 $app_id = 'xxxxxxx';
 $app_secret = 'xxxxxxx';
 
