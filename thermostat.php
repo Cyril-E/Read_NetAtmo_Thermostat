@@ -55,6 +55,7 @@ $value_thermostat1= file_get_contents($url_thermostat1);
 $json_mesures_thermostat1 = json_decode($value_thermostat1, true);
 $temperature_thermostat1 = $json_mesures_thermostat1["body"]["measured"]["temperature"];
 $run_thermostat1 = $json_mesures_thermostat1["body"]["therm_relay_cmd"];
+$setpoint_thermostat1=$json_mesures_thermostat1["body"]["measured"]["setpoint_temp"];
 
 
 $url_thermostat2="http://api.netatmo.net/api/getthermstate?access_token=" .  $params['access_token']."&device_id=".$device2."&module_id=".$module2;
@@ -62,21 +63,25 @@ $value_thermostat2= file_get_contents($url_thermostat2);
 $json_mesures_thermostat2 = json_decode($value_thermostat2, true);
 $temperature_thermostat2 = $json_mesures_thermostat2["body"]["measured"]["temperature"];
 $run_thermostat2 = $json_mesures_thermostat2["body"]["therm_relay_cmd"];
-
+$setpoint_thermostat2=$json_mesures_thermostat2["body"]["measured"]["setpoint_temp"];
 
 $url_thermostat3="http://api.netatmo.net/api/getthermstate?access_token=" .  $params['access_token']."&device_id=".$device3."&module_id=".$module3;
 $value_thermostat3= file_get_contents($url_thermostat3);
 $json_mesures_thermostat3 = json_decode($value_thermostat3, true);
 $temperature_thermostat3 = $json_mesures_thermostat3["body"]["measured"]["temperature"];
 $run_thermostat3 = $json_mesures_thermostat3["body"]["therm_relay_cmd"];
+$setpoint_thermostat3=$json_mesures_thermostat3["body"]["measured"]["setpoint_temp"];
 
 
 echo "<br /> Temperature Thermostat 1 : " . $temperature_thermostat1   . "<br />";
 echo "<br /> Etat Thermostat 1 : " . $run_thermostat1   . "<br />";    // Etat du thermostat, 0 chaudiere a l'arret, 100 chaudiere en marche
+echo "<br /> Consigne Thermostat 1 : " . $setpoint_thermostat1   . "<br />";
 echo "<br /> Temperature Thermostat 2 : " . $temperature_thermostat2   . "<br />";
 echo "<br /> Etat Thermostat 2 : " . $run_thermostat2   . "<br />";
+echo "<br /> Consigne Thermostat 2 : " . $setpoint_thermostat2   . "<br />";
 echo "<br /> Temperature Thermostat 3 : " . $temperature_thermostat3   . "<br />";
 echo "<br /> Etat Thermostat 3 : " . $run_thermostat3   . "<br />";
+echo "<br /> Consigne Thermostat 3 : " . $setpoint_thermostat3   . "<br />";
 
 
 ?>
