@@ -1,7 +1,7 @@
 <?php
 
 // Cyril E      http://www.ituilerie.com
-// Script inspiré de celui de Cédric Locqueneux. http://maison-et-domotique.com
+// Script inspiré du script pour la station meteo de Cédric Locqueneux. http://maison-et-domotique.com
 
 
 $password='xxxxxxx';
@@ -57,7 +57,6 @@ $temperature_thermostat1 = $json_mesures_thermostat1["body"]["measured"]["temper
 $run_thermostat1 = $json_mesures_thermostat1["body"]["therm_relay_cmd"];
 $setpoint_thermostat1=$json_mesures_thermostat1["body"]["measured"]["setpoint_temp"];
 
-
 $url_thermostat2="http://api.netatmo.net/api/getthermstate?access_token=" .  $params['access_token']."&device_id=".$device2."&module_id=".$module2;
 $value_thermostat2= file_get_contents($url_thermostat2);
 $json_mesures_thermostat2 = json_decode($value_thermostat2, true);
@@ -72,16 +71,17 @@ $temperature_thermostat3 = $json_mesures_thermostat3["body"]["measured"]["temper
 $run_thermostat3 = $json_mesures_thermostat3["body"]["therm_relay_cmd"];
 $setpoint_thermostat3=$json_mesures_thermostat3["body"]["measured"]["setpoint_temp"];
 
-
-echo "<br /> Temperature Thermostat 1 : " . $temperature_thermostat1   . "<br />";
-echo "<br /> Etat Thermostat 1 : " . $run_thermostat1   . "<br />";    // Etat du thermostat, 0 chaudiere a l'arret, 100 chaudiere en marche
-echo "<br /> Consigne Thermostat 1 : " . $setpoint_thermostat1   . "<br />";
-echo "<br /> Temperature Thermostat 2 : " . $temperature_thermostat2   . "<br />";
-echo "<br /> Etat Thermostat 2 : " . $run_thermostat2   . "<br />";
-echo "<br /> Consigne Thermostat 2 : " . $setpoint_thermostat2   . "<br />";
-echo "<br /> Temperature Thermostat 3 : " . $temperature_thermostat3   . "<br />";
-echo "<br /> Etat Thermostat 3 : " . $run_thermostat3   . "<br />";
-echo "<br /> Consigne Thermostat 3 : " . $setpoint_thermostat3   . "<br />";
-
+echo '<?xml version="1.0" encoding="utf8" ?>';
+echo "<netatmo>";
+echo "<Temp_Thermo_1>" . $temperature_thermostat1   . "</Temp_Thermo_1>";
+echo "<Etat_Thermo_1>" . $run_thermostat1   . "</Etat_Thermo_1>";             // Etat du thermostat, 0 chaudiere a l'arret, 100 chaudiere en marche
+echo "<Consigne_Thermo_1>" . $setpoint_thermostat1   . "</Consigne_Thermo_1>";
+echo "<Temp_Thermo_2>" . $temperature_thermostat2   . "</Temp_Thermo_2>";
+echo "<Etat_Thermo_2>" . $run_thermostat2   . "</Etat_Thermo_2>";
+echo "<Consigne_Thermo_2>" . $setpoint_thermostat2   . "</Consigne_Thermo_2>";
+echo "<Temp_Thermo_3" . $temperature_thermostat3   . "</Temp_Thermo_3>";
+echo "<Etat_Thermo_3>" . $run_thermostat3   . "</Etat_Thermo_3>";
+echo "<Consigne_Thermo_3>" . $setpoint_thermostat3   . "</Consigne_Thermo_3>";
+echo "</netatmo>";
 
 ?>
