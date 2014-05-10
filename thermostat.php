@@ -1,7 +1,7 @@
 <?php
 
 // Cyril E      http://www.ituilerie.com
-// Script inspiré du script pour la station meteo de Cédric Locqueneux. http://maison-et-domotique.com
+// Script inspiré du script de la station meteo par Cédric Locqueneux. http://maison-et-domotique.com
 
 
 $password='xxxxxxx';
@@ -79,7 +79,7 @@ echo "<Consigne_Thermo_1>" . $setpoint_thermostat1   . "</Consigne_Thermo_1>";
 echo "<Temp_Thermo_2>" . $temperature_thermostat2   . "</Temp_Thermo_2>";
 echo "<Etat_Thermo_2>" . $run_thermostat2   . "</Etat_Thermo_2>";
 echo "<Consigne_Thermo_2>" . $setpoint_thermostat2   . "</Consigne_Thermo_2>";
-echo "<Temp_Thermo_3" . $temperature_thermostat3   . "</Temp_Thermo_3>";
+echo "<Temp_Thermo_3>" . $temperature_thermostat3   . "</Temp_Thermo_3>";
 echo "<Etat_Thermo_3>" . $run_thermostat3   . "</Etat_Thermo_3>";
 echo "<Consigne_Thermo_3>" . $setpoint_thermostat3   . "</Consigne_Thermo_3>";
 echo "</netatmo>";
